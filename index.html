@@ -9,68 +9,843 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 1000px;
+            max-width: 700px; /* 进一步缩窄页面宽度 */
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
             background-color: #f9f9f9;
         }
         h1 {
             color: #2c3e50;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
+            font-size: 1.8em;
         }
         h2 {
             color: #2980b9;
-            margin-top: 30px;
+            margin-top: 25px;
             border-left: 4px solid #3498db;
-            padding-left: 10px;
+            padding-left: 8px;
+            font-size: 1.4em;
         }
         h3 {
             color: #16a085;
-            margin-top: 20px;
+            margin-top: 18px;
+            font-size: 1.2em;
         }
         .section {
             background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .question {
             font-weight: bold;
             color: #e74c3c;
-            margin-top: 15px;
+            margin-top: 12px;
+            font-size: 0.95em;
         }
         .answer {
             color: #27ae60;
-            margin-bottom: 15px;
-            padding-left: 20px;
+            margin-bottom: 12px;
+            padding-left: 15px;
             border-left: 2px solid #2ecc71;
+            font-size: 0.95em;
         }
         .rule {
             background-color: #f1f9fe;
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin: 10px 0;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 8px 0;
             border-left: 3px solid #3498db;
+            font-size: 0.95em;
         }
         .example {
             background-color: #f8f9fa;
-            padding: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+        }
+        
+        /* 紧凑的镜面对称动画样式 */
+        .mirror-animation-container {
+            width: 100%;
+            max-width: 350px; /* 更窄的动画宽度 */
+            height: 180px; /* 更低的高度 */
+            display: flex;
+            position: relative;
+            margin: 15px auto;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .original-side, .mirror-side {
+            width: 50%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .mirror-side {
+            transform: scaleX(-1);
+        }
+        
+        .animated-shape {
+            width: 60px; /* 更小的形状 */
+            height: 60px;
+            background: linear-gradient(45deg, #ff3366, #8833ff);
+            border-radius: 12px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: moveAndRotate 7s infinite ease-in-out;
+            box-shadow: 0 0 8px rgba(0,0,0,0.15);
+        }
+        
+        .mirror-line {
+            position: absolute;
+            width: 2px; /* 更细的镜面线 */
+            height: 100%;
+            left: 50%;
+            top: 0;
+            background: linear-gradient(to bottom, 
+                rgba(255,255,255,0.1) 0%, 
+                rgba(255,255,255,0.6) 50%, 
+                rgba(255,255,255,0.1) 100%);
+            box-shadow: 0 0 6px rgba(255,255,255,0.5);
+            z-index: 2;
+        }
+        
+        @keyframes moveAndRotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                border-radius: 12px;
+                background: linear-gradient(45deg, #ff3366, #8833ff);
+            }
+            20% {
+                transform: translate(-80%, -30%) rotate(90deg) scale(1.1);
+                border-radius: 30%;
+                background: linear-gradient(45deg, #33ff66, #3388ff);
+            }
+            40% {
+                transform: translate(-50%, -80%) rotate(180deg) scale(0.9);
+                border-radius: 5px;
+                background: linear-gradient(45deg, #ff8833, #ff33cc);
+            }
+            60% {
+                transform: translate(-20%, -30%) rotate(270deg) scale(1);
+                border-radius: 50%;
+                background: linear-gradient(45deg, #33ccff, #99ff33);
+            }
+            80% {
+                transform: translate(-70%, -70%) rotate(360deg) scale(1.1);
+                border-radius: 20px;
+                background: linear-gradient(45deg, #ffcc33, #ff3366);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(1);
+                border-radius: 12px;
+                background: linear-gradient(45deg, #ff3366, #8833ff);
+            }
+        }
+		.dice-animation-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .dice-box {
+            perspective: 1000px;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .dice {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateDice 8s infinite ease-in-out;
+        }
+        
+        .dice-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #333;
+            position: absolute;
+        }
+        
+        /* 骰子各面位置 */
+        .front  { transform: rotateY(0deg) translateZ(60px); }
+        .back   { transform: rotateY(180deg) translateZ(60px); }
+        .right  { transform: rotateY(90deg) translateZ(60px); }
+        .left   { transform: rotateY(-90deg) translateZ(60px); }
+        .top    { transform: rotateX(90deg) translateZ(60px); }
+        .bottom { transform: rotateX(-90deg) translateZ(60px); }
+        
+        /* 骰子点数布局 */
+        .dot-1 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        
+        .dot-2 { top: 25%; left: 25%; }
+        .dot-3 { bottom: 25%; right: 25%; }
+        
+        .dot-4 { top: 25%; left: 25%; }
+        .dot-5 { top: 25%; right: 25%; }
+        .dot-6 { bottom: 25%; left: 25%; }
+        .dot-7 { bottom: 25%; right: 25%; }
+        
+        .dot-8 { top: 25%; left: 25%; }
+        .dot-9 { top: 25%; right: 25%; }
+        .dot-10 { bottom: 25%; left: 25%; }
+        .dot-11 { bottom: 25%; right: 25%; }
+        .dot-12 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        
+        /* 动画效果 */
+        @keyframes rotateDice {
+            0% { transform: rotateX(0) rotateY(0); }
+            16.6% { transform: rotateX(90deg) rotateY(0); }
+            33.2% { transform: rotateX(180deg) rotateY(90deg); }
+            49.8% { transform: rotateX(270deg) rotateY(180deg); }
+            66.4% { transform: rotateX(360deg) rotateY(270deg); }
+            83% { transform: rotateX(450deg) rotateY(360deg); }
+            100% { transform: rotateX(540deg) rotateY(450deg); }
+        }
+		 .probability-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            margin: 20px 0;
+        }
+        
+        .event-area {
+            position: absolute;
+            width: 100%;
+            height: 33.33%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certain-area {
+            top: 0;
+            background-color: rgba(46, 204, 113, 0.1);
+            border-bottom: 1px dashed #2ecc71;
+        }
+        
+        .possible-area {
+            top: 33.33%;
+            background-color: rgba(243, 156, 18, 0.1);
+            border-bottom: 1px dashed #f39c12;
+        }
+        
+        .impossible-area {
+            top: 66.66%;
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        
+        .event-label {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .certain-label {
+            background-color: #2ecc71;
+        }
+        
+        .possible-label {
+            background-color: #f39c12;
+        }
+        
+        .impossible-label {
+            background-color: #e74c3c;
+        }
+        
+        .animation-element {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        .certain-element {
+            background-color: #2ecc71;
+            animation-name: certainAnimation;
+        }
+        
+        .possible-element {
+            background-color: #f39c12;
+            animation-name: possibleAnimation;
+        }
+        
+        .impossible-element {
+            background-color: #e74c3c;
+            animation-name: impossibleAnimation;
+        }
+        
+        .probability-indicator {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            width: 100px;
+            height: 10px;
+            background-color: #ecf0f1;
             border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .probability-fill {
+            height: 100%;
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .certain-fill {
+            width: 100%;
+            background-color: #2ecc71;
+        }
+        
+        .possible-fill {
+            width: 50%;
+            background-color: #f39c12;
+            animation: possibleFill 3s infinite ease-in-out;
+        }
+        
+        .impossible-fill {
+            width: 0%;
+            background-color: #e74c3c;
+        }
+        
+        @keyframes certainAnimation {
+            0%, 100% { transform: translateX(-100px) scale(1); }
+            50% { transform: translateX(100px) scale(1.2); }
+        }
+        
+        @keyframes possibleAnimation {
+            0% { transform: translate(-100px, -30px); }
+            25% { transform: translate(100px, -30px); }
+            50% { transform: translate(100px, 30px); }
+            75% { transform: translate(-100px, 30px); }
+            100% { transform: translate(-100px, -30px); }
+        }
+        
+        @keyframes impossibleAnimation {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(0.8); opacity: 0.3; }
+        }
+        
+        @keyframes possibleFill {
+            0%, 100% { width: 30%; }
+            50% { width: 70%; }
+        }
+        
+        .example-icon {
+            position: absolute;
+            font-size: 1.5em;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .sun-icon {
+            color: #f1c40f;
+            left: 30%;
+            top: 20%;
+        }
+        
+        .rain-icon {
+            color: #3498db;
+            left: 40%;
+            top: 50%;
+        }
+        
+        .impossible-icon {
+            color: #e74c3c;
+            left: 35%;
+            top: 80%;
+            opacity: 0.6;
+        }
+        
+        .explanation {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f1f9fe;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+		.bottle-exchange-animation {
+            width: 100%;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 10px;
+            background-color: #f5f7fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .exchange-stage {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .exchange-stage.active {
+            display: block;
+        }
+        
+        .bottle-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
             margin: 10px 0;
         }
+        
+        .bottle {
+            width: 50px;
+            height: 80px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .full {
+            background: linear-gradient(to top, #2ecc71 80%, #27ae60 100%);
+        }
+        
+        .empty {
+            background: linear-gradient(to top, #e74c3c 20%, #c0392b 100%);
+        }
+        
+        .cap {
+            width: 25px;
+            height: 8px;
+            background: #fff;
+            border-radius: 3px 3px 0 0;
+            margin-bottom: 4px;
+        }
+        
+        .label {
+            font-size: 10px;
+            color: white;
+            margin: 3px 0;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+        }
+        
+        .used {
+            opacity: 0.4;
+        }
+        
+        .exchange-arrow {
+            text-align: center;
+            margin: 5px 0;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        
+        .exchange-stats {
+            display: flex;
+            justify-content: space-around;
+            background: #ecf0f1;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+        
+        .exchange-controls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .exchange-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 15px;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s;
+        }
+        
+        .exchange-btn:hover {
+            background: #2980b9;
+        }
+        
+        .exchange-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .number-item {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .even {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .odd {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .selected {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .control-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: #2ecc71;
+            color: white;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .control-btn:hover {
+            background: #27ae60;
+        }
+        
+        .control-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .result-display {
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+        
+        .result-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+		.river-scene {
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+    position: relative;
+    margin: 15px 0;
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.river-bank {
+    width: 30%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.left-bank {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-right: 2px dashed #2ecc71;
+}
+
+.right-bank {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 2px dashed #e74c3c;
+}
+
+.river {
+    width: 40%;
+    position: relative;
+}
+
+.boat {
+    width: 80px;
+    height: 40px;
+    background-color: #8e44ad;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: all 1s ease-in-out;
+    z-index: 3;
+}
+
+.person {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    margin: 3px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+.person::after {
+    content: attr(data-weight);
+    position: absolute;
+    bottom: -15px;
+    font-size: 0.6em;
+    color: #333;
+}
+
+.person-1 { background-color: #e74c3c; }
+.person-2 { background-color: #3498db; }
+.person-3 { background-color: #2ecc71; }
+
+.bank-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-size: 0.9em;
+}
+
+.people-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ecf0f1;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1em;
+}
+
+.stat-label {
+    font-size: 0.7em;
+    color: #7f8c8d;
+}
+
+.message {
+    text-align: center;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.success {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #27ae60;
+}
+
+.error {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #c0392b;
+}
+
+.info {
+    background-color: rgba(52, 152, 219, 0.2);
+    color: #2980b9;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.control-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 15px;
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.8em;
+}
+
+.control-btn:hover { background: #2980b9; }
+.control-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+.question {
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 15px 0 5px 0;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #3498db;
+    font-size: 1em;
+}
+
+.answer {
+    color: #27ae60;
+    margin: 0 0 20px 20px;
+    padding: 8px 12px;
+    background-color: #f1f9fe;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/* 示例区域样式优化 */
+.example {
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border: 1px solid #e0e0e0;
+}
+
+/* 规则样式优化 */
+.rule {
+    background-color: #f1f9fe;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 12px 0;
+    border-left: 4px solid #3498db;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+        
     </style>
 </head>
 <body>
     <h1>趣味数学1</h1>
     
-	
-	 <div class="section">
-        <h2>镜中对称</h2>
     <div class="section">
+        <h2>镜中对称</h2>
+        
+        <!-- 紧凑的镜面对称动画 -->
+        <div class="mirror-animation-container">
+            <div class="mirror-line"></div>
+            <div class="original-side">
+                <div class="animated-shape"></div>
+            </div>
+            <div class="mirror-side">
+                <div class="animated-shape"></div>
+            </div>
+        </div>
+        
         <h3>1. 镜像识别</h3>
         <div class="rule">
             <strong>运算法则：</strong>镜像是物体相对于镜子的位置左右颠倒的反射。
@@ -87,8 +862,8 @@
             <div class="answer">左右颠倒显示</div>
         </div>
     </div>
-    
-    <div class="section">
+
+     <div class="section">
         <h3>2. 距离计算</h3>
         <div class="rule">
             <strong>运算法则：</strong>物体到镜子的距离与其镜像到镜子的距离相等，物体与镜像之间的距离是两倍物体到镜子的距离。
@@ -162,6 +937,47 @@
     
     <div class="section">
         <h2>有趣的骰子</h2>
+        <div class="dice-animation-container">
+            <div class="dice-box">
+                <div class="dice">
+                    <div class="dice-face front">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                    </div>
+                    <div class="dice-face back">
+                        <div class="dot dot-4"></div>
+                        <div class="dot dot-5"></div>
+                        <div class="dot dot-6"></div>
+                        <div class="dot dot-7"></div>
+                    </div>
+                    <div class="dice-face right">
+                        <div class="dot dot-8"></div>
+                        <div class="dot dot-9"></div>
+                        <div class="dot dot-10"></div>
+                        <div class="dot dot-11"></div>
+                        <div class="dot dot-12"></div>
+                    </div>
+                    <div class="dice-face left">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                    </div>
+                    <div class="dice-face top">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                        <div class="dot dot-4"></div>
+                    </div>
+                    <div class="dice-face bottom">
+                        <div class="dot dot-1"></div>
+                        <div class="dot dot-2"></div>
+                        <div class="dot dot-3"></div>
+                        <div class="dot dot-4"></div>
+                        <div class="dot dot-5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <h3>1. 骰子点数</h3>
         <div class="rule">
@@ -214,7 +1030,37 @@
     
     <div class="section">
         <h2>生活中的可能性</h2>
-        
+        <div class="probability-container">
+            <!-- 必然事件区域 -->
+            <div class="event-area certain-area">
+                <span class="event-label certain-label">必然事件</span>
+                <div class="probability-indicator">
+                    <div class="probability-fill certain-fill"></div>
+                </div>
+                <div class="animation-element certain-element">✔</div>
+                <div class="example-icon sun-icon">☀️</div>
+            </div>
+            
+            <!-- 可能事件区域 -->
+            <div class="event-area possible-area">
+                <span class="event-label possible-label">可能事件</span>
+                <div class="probability-indicator">
+                    <div class="probability-fill possible-fill"></div>
+                </div>
+                <div class="animation-element possible-element">?</div>
+                <div class="example-icon rain-icon">🌧️</div>
+            </div>
+            
+            <!-- 不可能事件区域 -->
+            <div class="event-area impossible-area">
+                <span class="event-label impossible-label">不可能事件</span>
+                <div class="probability-indicator">
+                    <div class="probability-fill impossible-fill"></div>
+                </div>
+                <div class="animation-element impossible-element">✖</div>
+                <div class="example-icon impossible-icon">👨‍🚀</div>
+            </div>
+        </div>
         <h3>1. 必然事件</h3>
         <div class="rule">
             <strong>运算法则：</strong>必然事件是指在一定条件下一定会发生的事件。
@@ -222,7 +1068,7 @@
         
         <div class="example">
             <div class="question">太阳从东方升起是必然事件吗？</div>
-            <div class="answer">是</div>
+            <div class="answer">在地球当前状态、地表中低纬地区、地球保持正常自转的条件下，是必然（始终自西向东转）。</div>
             
             <div class="question">水在100摄氏度沸腾是必然事件吗？</div>
             <div class="answer">在标准气压下是</div>
@@ -300,6 +1146,251 @@
         <h2>趣题巧解</h2>
         
         <h3>1. 空瓶换饮料问题</h3>
+		 <div class="bottle-exchange-animation">
+            <!-- 阶段1：初始3瓶 -->
+            <div class="exchange-stage active" id="exchange-stage1">
+                <div style="text-align: center; margin-bottom: 5px; font-weight: bold;">初始购买3瓶饮料</div>
+                <div class="bottle-container">
+                    <div class="bottle full">
+                        <div class="cap"></div>
+                        <div class="label">满瓶1</div>
+                    </div>
+                    <div class="bottle full">
+                        <div class="cap"></div>
+                        <div class="label">满瓶2</div>
+                    </div>
+                    <div class="bottle full">
+                        <div class="cap"></div>
+                        <div class="label">满瓶3</div>
+                    </div>
+                </div>
+                <div class="exchange-stats">
+                    <div class="stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">满瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">空瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">已喝</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段2：喝完3瓶 -->
+            <div class="exchange-stage" id="exchange-stage2">
+                <div style="text-align: center; margin-bottom: 5px; font-weight: bold;">喝完3瓶变成3个空瓶</div>
+                <div class="bottle-container">
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">空瓶1</div>
+                    </div>
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">空瓶2</div>
+                    </div>
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">空瓶3</div>
+                    </div>
+                </div>
+                <div class="exchange-stats">
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">满瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">空瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">已喝</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段3：兑换1瓶 -->
+            <div class="exchange-stage" id="exchange-stage3">
+                <div style="text-align: center; margin-bottom: 5px; font-weight: bold;">用2空瓶兑换1瓶新饮料</div>
+                <div class="bottle-container">
+                    <div class="bottle empty used">
+                        <div class="cap"></div>
+                        <div class="label">已用</div>
+                    </div>
+                    <div class="bottle empty used">
+                        <div class="cap"></div>
+                        <div class="label">已用</div>
+                    </div>
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">剩余</div>
+                    </div>
+                </div>
+                <div class="exchange-arrow">↓</div>
+                <div class="bottle-container">
+                    <div class="bottle full">
+                        <div class="cap"></div>
+                        <div class="label">新瓶1</div>
+                    </div>
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">剩余</div>
+                    </div>
+                </div>
+                <div class="exchange-stats">
+                    <div class="stat">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">满瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">空瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">已喝</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段4：喝完兑换的1瓶 -->
+            <div class="exchange-stage" id="exchange-stage4">
+                <div style="text-align: center; margin-bottom: 5px; font-weight: bold;">喝完兑换的1瓶变成1空瓶</div>
+                <div class="bottle-container">
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">空瓶1</div>
+                    </div>
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">空瓶2</div>
+                    </div>
+                </div>
+                <div class="exchange-stats">
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">满瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">空瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">已喝</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段5：再次兑换1瓶 -->
+            <div class="exchange-stage" id="exchange-stage5">
+                <div style="text-align: center; margin-bottom: 5px; font-weight: bold;">再用2空瓶兑换1瓶新饮料</div>
+                <div class="bottle-container">
+                    <div class="bottle empty used">
+                        <div class="cap"></div>
+                        <div class="label">已用</div>
+                    </div>
+                    <div class="bottle empty used">
+                        <div class="cap"></div>
+                        <div class="label">已用</div>
+                    </div>
+                </div>
+                <div class="exchange-arrow">↓</div>
+                <div class="bottle-container">
+                    <div class="bottle full">
+                        <div class="cap"></div>
+                        <div class="label">新瓶2</div>
+                    </div>
+                </div>
+                <div class="exchange-stats">
+                    <div class="stat">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">满瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">空瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">已喝</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段6：喝完最后1瓶 -->
+            <div class="exchange-stage" id="exchange-stage6">
+                <div style="text-align: center; margin-bottom: 5px; font-weight: bold;">喝完最后1瓶变成1空瓶</div>
+                <div class="bottle-container">
+                    <div class="bottle empty">
+                        <div class="cap"></div>
+                        <div class="label">空瓶</div>
+                    </div>
+                </div>
+                <div class="exchange-stats">
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">满瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">空瓶</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">已喝</div>
+                    </div>
+                </div>
+                <div style="text-align: center; color: #e74c3c; margin-top: 5px; font-size: 0.9em; font-weight: bold;">
+                    空瓶不足2个，无法继续兑换
+                </div>
+            </div>
+            
+            <!-- 阶段7：总结 -->
+            <div class="exchange-stage" id="exchange-stage7">
+                <div style="text-align: center; margin-bottom: 5px; font-weight: bold;">总计饮用瓶数</div>
+                <div style="text-align: center; font-size: 1.2em; color: #2ecc71; margin: 10px 0;">
+                    <span>初始3瓶 + 兑换2瓶 = </span>
+                    <span style="font-weight: bold;">总计5瓶</span>
+                </div>
+                <div class="bottle-container" style="justify-content: center; gap: 20px;">
+                    <div style="text-align: center;">
+                        <div class="bottle full">
+                            <div class="cap"></div>
+                            <div class="label">初始</div>
+                        </div>
+                        <div>3</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="bottle full">
+                            <div class="cap"></div>
+                            <div class="label">兑换</div>
+                        </div>
+                        <div>2</div>
+                    </div>
+                    <div style="text-align: center; line-height: 80px;">
+                        =
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5em; color: #2ecc71; line-height: 80px; font-weight: bold;">5</div>
+                        <div>总计饮用</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exchange-controls">
+                <button class="exchange-btn" id="exchange-prev">上一步</button>
+                <button class="exchange-btn" id="exchange-next">下一步</button>
+                <button class="exchange-btn" id="exchange-restart">重新开始</button>
+                <button class="exchange-btn" id="exchange-auto">自动播放</button>
+            </div>
+        </div>
+        
+       
         <div class="rule">
             <strong>运算法则：</strong><br>
             1. 先计算购买的饮料瓶数。<br>
@@ -316,9 +1407,69 @@
             
             <div class="question">5个空瓶换2瓶，买10瓶最多喝几瓶？</div>
             <div class="answer">14瓶</div>
+			
+			<div class="question">5个空瓶换2瓶，买19瓶最多喝几瓶？</div>
+            <div class="answer">29瓶</div>
         </div>
         
         <h3>2. 渡船问题</h3>
+		<!-- 在 <h3>2. 渡船问题</h3> 下面添加以下代码 -->
+		
+		<div class="container">
+  
+    <div class="rules">
+      <h2>条件</h2>
+      <p>1. 船最多载2人，最大载重100kg</p>
+      <p>2. 人员重量：A(60kg), B(40kg), C(50kg)</p>
+    
+    </div>
+
+		
+<div class="river-scene">
+    <div class="river-bank left-bank">
+        <div class="bank-title">左岸</div>
+        <div class="people-container" id="leftBank"></div>
+    </div>
+    <div class="river">
+        <div class="boat" id="boat">船</div>
+    </div>
+    <div class="river-bank right-bank">
+        <div class="bank-title">右岸</div>
+        <div class="people-container" id="rightBank"></div>
+    </div>
+</div>
+
+<div class="stats">
+    <div class="stat">
+        <div class="stat-value" id="tripCount">0</div>
+        <div class="stat-label">渡河次数</div>
+    </div>
+    <div class="stat">
+        <div class="stat-value" id="currentWeight">0</div>
+        <div class="stat-label">船上重量(kg)</div>
+    </div>
+    <div class="stat">
+        <div class="stat-value" id="peopleOnBoat">0</div>
+        <div class="stat-label">船上人数</div>
+    </div>
+</div>
+
+<div class="message info" id="message">点击"自动演示"开始</div>
+
+<div class="controls">
+    <button class="control-btn" id="crossBtn">渡河</button>
+    <button class="control-btn" id="resetBtn">重置</button>
+    <button class="control-btn" id="autoBtn">自动演示</button>
+</div>
+ <div class="solution-steps">
+      <h2>运输步骤 (共3次渡河)</h2>
+      <div class="step current-step"><span class="step-number">1</span>AB渡河到右岸</div>
+      <div class="step"><span class="step-number">2</span>B返回左岸</div>
+      <div class="step"><span class="step-number">3</span>BC渡河到右岸</div>
+      <div class="step"><span class="step-number">✓</span><strong>所有人已安全到达右岸 (A、B、C都在右岸)</strong></div>
+    </div>
+	
+	
         <div class="rule">
             <strong>运算法则：</strong><br>
             1. 船最大载人数或载重限制。<br>
@@ -340,6 +1491,27 @@
     
     <div class="section">
         <h2>奇与偶的应用</h2>
+		
+		 <div class="animation-container">
+        <div class="number-grid" id="numberGrid">
+            <!-- 数字将通过JavaScript动态生成 -->
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" id="addBtn">相加</button>
+            <button class="control-btn" id="subtractBtn">相减</button>
+            <button class="control-btn" id="clearBtn">清空</button>
+        </div>
+        
+        <div class="result-display">
+            已选数字: <span id="selectedNumbers" class="result-value">无</span><br>
+            结果: <span id="operationResult" class="result-value">-</span>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px; color: #7f8c8d; font-size: 0.9em;">
+            点击数字选择（最多2个），然后点击"相加"或"相减"查看结果
+        </div>
+    </div>
         
         <h3>1. 奇偶性判断</h3>
         <div class="rule">
@@ -368,14 +1540,21 @@
         </div>
         
         <div class="example">
-            <div class="question">骑自行车7次后在哪？</div>
+            <div class="question">小明站在马路这边，每次过马路就会到对面。
+如果他一共过了 7 次马路，现在他在哪边？</div>
             <div class="answer">对面</div>
             
-            <div class="question">连续敲门10次，最后在哪个位置？</div>
-            <div class="answer">起点</div>
+            <div class="question">小红站在马路这边，看到小猫在对面。她走到对面去把小猫抱回来。
+后来她又想起水壶忘在这边了，又走回来拿水壶。
+拿好水壶，她再一次走到对面去。
+一共走了 3 次马路，现在她在哪边？</div>
+            <div class="answer">对面</div>
             
-            <div class="question">小狗摇尾巴5次后处于什么状态？</div>
-            <div class="answer">反转状态</div>
+            <div class="question">小明住在楼道这边，他来找住在对面的小亮玩。
+小亮不在，小明回到自己家。
+过一会儿小亮来了，小明又走去对面找他。
+小明一共走了 4 次楼道，现在他在哪？</div>
+            <div class="answer">家</div>
         </div>
         
         <h3>3. 图形规律</h3>
@@ -387,15 +1566,379 @@
         </div>
         
         <div class="example">
-            <div class="question">小动物抢糖7次后糖在谁手中？</div>
+            <div class="question">小猫最先拿到了一颗糖。小狗看见后抢走了，小兔又抢走了……
+它们三个按顺序轮流抢糖，每次只有一个动物能从当前拿糖的手中抢过去。
+它们一共抢了 7次。请问，最后糖在谁手中？</div>
             <div class="answer">最初拿糖的人</div>
             
-            <div class="question">图形旋转8次后方向如何？</div>
-            <div class="answer">恢复初始方向</div>
+            <div class="question">一个风车玩具每次被风吹动都会顺时针旋转45度。
+它一共被风吹动了8次，请问风车的方向现在怎样了？</div>
+            <div class="answer">恢复到初始方向</div>
             
-            <div class="question">黑白格子交替颜色，走了9步颜色变成什么？</div>
+            <div class="question">小蚂蚁在一条黑白相间的格子路上前进，每个格子一黑一白交替排列。
+它从一个白格子出发，每走一步就跨到下一个格子。
+它一共走了 9 步，请问现在它站在什么颜色的格子上？</div>
             <div class="answer">相反颜色</div>
         </div>
     </div>
+	   <script>
+        // 空瓶兑换动画控制
+        let currentExchangeStage = 1;
+        const totalExchangeStages = 7;
+        let exchangeAutoPlayInterval;
+        
+        // 获取所有兑换阶段元素
+        const exchangeStages = document.querySelectorAll('.exchange-stage');
+        
+        // 显示指定兑换阶段
+        function showExchangeStage(stageNum) {
+            exchangeStages.forEach(stage => stage.classList.remove('active'));
+            document.getElementById(`exchange-stage${stageNum}`).classList.add('active');
+            currentExchangeStage = stageNum;
+            updateExchangeButtons();
+        }
+        
+        // 更新兑换按钮状态
+        function updateExchangeButtons() {
+            document.getElementById('exchange-prev').disabled = currentExchangeStage === 1;
+            document.getElementById('exchange-next').disabled = currentExchangeStage === totalExchangeStages;
+        }
+        
+        // 按钮事件监听
+        document.getElementById('exchange-prev').addEventListener('click', () => {
+            if (currentExchangeStage > 1) showExchangeStage(currentExchangeStage - 1);
+        });
+        
+        document.getElementById('exchange-next').addEventListener('click', () => {
+            if (currentExchangeStage < totalExchangeStages) showExchangeStage(currentExchangeStage + 1);
+        });
+        
+        document.getElementById('exchange-restart').addEventListener('click', () => {
+            if (exchangeAutoPlayInterval) {
+                clearInterval(exchangeAutoPlayInterval);
+                exchangeAutoPlayInterval = null;
+                document.getElementById('exchange-auto').textContent = '自动播放';
+            }
+            showExchangeStage(1);
+        });
+        
+        document.getElementById('exchange-auto').addEventListener('click', function() {
+            if (exchangeAutoPlayInterval) {
+                clearInterval(exchangeAutoPlayInterval);
+                exchangeAutoPlayInterval = null;
+                this.textContent = '自动播放';
+            } else {
+                this.textContent = '停止播放';
+                showExchangeStage(1);
+                exchangeAutoPlayInterval = setInterval(() => {
+                    if (currentExchangeStage < totalExchangeStages) {
+                        showExchangeStage(currentExchangeStage + 1);
+                    } else {
+                        clearInterval(exchangeAutoPlayInterval);
+                        exchangeAutoPlayInterval = null;
+                        this.textContent = '自动播放';
+                    }
+                }, 1500);
+            }
+        });
+        
+        // 初始化显示第一阶段
+        showExchangeStage(1);
+        updateExchangeButtons();
+		
+		document.addEventListener('DOMContentLoaded', function() {
+            // 获取DOM元素
+            const numberGrid = document.getElementById('numberGrid');
+            const selectedNumbersSpan = document.getElementById('selectedNumbers');
+            const operationResultSpan = document.getElementById('operationResult');
+            const addBtn = document.getElementById('addBtn');
+            const subtractBtn = document.getElementById('subtractBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            
+            let selectedNumbers = [];
+            
+            // 生成1-20的数字网格
+            for (let i = 1; i <= 20; i++) {
+                const numberItem = document.createElement('div');
+                numberItem.className = `number-item ${i % 2 === 0 ? 'even' : 'odd'}`;
+                numberItem.textContent = i;
+                numberItem.addEventListener('click', function() {
+                    toggleNumberSelection(i);
+                });
+                numberGrid.appendChild(numberItem);
+            }
+            
+            // 切换数字选择状态
+            function toggleNumberSelection(num) {
+                const index = selectedNumbers.indexOf(num);
+                if (index === -1) {
+                    if (selectedNumbers.length < 2) {
+                        selectedNumbers.push(num);
+                        updateNumberSelection();
+                    }
+                } else {
+                    selectedNumbers.splice(index, 1);
+                    updateNumberSelection();
+                }
+            }
+            
+            // 更新数字选择状态和按钮
+            function updateNumberSelection() {
+                // 更新所有数字项的选中状态
+                document.querySelectorAll('.number-item').forEach(item => {
+                    const num = parseInt(item.textContent);
+                    if (selectedNumbers.includes(num)) {
+                        item.classList.add('selected');
+                    } else {
+                        item.classList.remove('selected');
+                    }
+                });
+                
+                // 更新显示
+                if (selectedNumbers.length === 0) {
+                    selectedNumbersSpan.textContent = '无';
+                    addBtn.disabled = true;
+                    subtractBtn.disabled = true;
+                    operationResultSpan.textContent = '-';
+                } else {
+                    selectedNumbersSpan.textContent = selectedNumbers.join(', ');
+                    addBtn.disabled = selectedNumbers.length !== 2;
+                    subtractBtn.disabled = selectedNumbers.length !== 2;
+                }
+            }
+            
+            // 加法按钮点击事件
+            addBtn.addEventListener('click', function() {
+                if (selectedNumbers.length === 2) {
+                    const result = selectedNumbers[0] + selectedNumbers[1];
+                    const isEven = result % 2 === 0;
+                    operationResultSpan.textContent = `${result} (${isEven ? '偶数' : '奇数'})`;
+                    
+                    // 演示奇偶性规则
+                    highlightRule(selectedNumbers[0] % 2, selectedNumbers[1] % 2, '+');
+                }
+            });
+            
+            // 减法按钮点击事件
+            subtractBtn.addEventListener('click', function() {
+                if (selectedNumbers.length === 2) {
+                    const result = Math.abs(selectedNumbers[0] - selectedNumbers[1]);
+                    const isEven = result % 2 === 0;
+                    operationResultSpan.textContent = `${result} (${isEven ? '偶数' : '奇数'})`;
+                    
+                    // 演示奇偶性规则
+                    highlightRule(selectedNumbers[0] % 2, selectedNumbers[1] % 2, '-');
+                }
+            });
+            
+            // 清空按钮点击事件
+            clearBtn.addEventListener('click', function() {
+                selectedNumbers = [];
+                updateNumberSelection();
+                operationResultSpan.textContent = '-';
+            });
+            
+            // 高亮显示对应的奇偶性规则
+            function highlightRule(num1Type, num2Type, operator) {
+                const rules = {
+                    '0+0': '偶数 + 偶数 = 偶数',
+                    '0+1': '偶数 + 奇数 = 奇数',
+                    '1+0': '奇数 + 偶数 = 奇数',
+                    '1+1': '奇数 + 奇数 = 偶数',
+                    '0-0': '偶数 - 偶数 = 偶数',
+                    '0-1': '偶数 - 奇数 = 奇数',
+                    '1-0': '奇数 - 偶数 = 奇数',
+                    '1-1': '奇数 - 奇数 = 偶数'
+                };
+                
+                const ruleKey = `${num1Type}${operator}${num2Type}`;
+                const ruleText = rules[ruleKey];
+                
+                if (ruleText) {
+                    alert(`规则验证: ${ruleText}`);
+                }
+            }
+            
+            // 初始化
+            updateNumberSelection();
+        });
+        
+		
+		
+    document.addEventListener('DOMContentLoaded', function () {
+        const people = [
+            { id: 1, weight: 60, name: 'A', location: 'left' },
+            { id: 2, weight: 40, name: 'B', location: 'left' },
+            { id: 3, weight: 50, name: 'C', location: 'left' }
+        ];
+        const boatCapacity = 100;
+        let boatPosition = 'left';
+        let selectedPeople = [];
+        let currentTrip = 0;
+        let autoSolving = false;
+
+        const leftBankEl = document.getElementById('leftBank');
+        const rightBankEl = document.getElementById('rightBank');
+        const boatEl = document.getElementById('boat');
+        const tripCountEl = document.getElementById('tripCount');
+        const currentWeightEl = document.getElementById('currentWeight');
+        const peopleOnBoatEl = document.getElementById('peopleOnBoat');
+        const messageEl = document.getElementById('message');
+        const crossBtn = document.getElementById('crossBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const autoBtn = document.getElementById('autoBtn');
+
+        function renderPeople() {
+            leftBankEl.innerHTML = '';
+            rightBankEl.innerHTML = '';
+            boatEl.innerHTML = '船';
+
+            people.forEach(person => {
+                const personEl = document.createElement('div');
+                personEl.className = `person person-${person.id}`;
+                personEl.textContent = person.name;
+                personEl.dataset.weight = person.weight + 'kg';
+                personEl.addEventListener('click', () => {
+                    if (!autoSolving) togglePerson(person.id);
+                });
+
+                if (selectedPeople.includes(person.id)) {
+                    personEl.style.opacity = '0.5';
+                }
+
+                if (person.location === 'left') {
+                    leftBankEl.appendChild(personEl);
+                } else {
+                    rightBankEl.appendChild(personEl);
+                }
+            });
+
+            selectedPeople.forEach(pid => {
+                const person = people.find(p => p.id === pid);
+                if (person) {
+                    const el = document.createElement('div');
+                    el.className = `person person-${person.id}`;
+                    el.textContent = person.name;
+                    el.style.margin = '2px';
+                    el.style.transform = 'scale(0.8)';
+                    boatEl.appendChild(el);
+                }
+            });
+        }
+
+        function togglePerson(id) {
+            const index = selectedPeople.indexOf(id);
+            if (index === -1) {
+                if (selectedPeople.length >= 2) {
+                    showMessage('最多只能选2人', 'error');
+                    return;
+                }
+                selectedPeople.push(id);
+            } else {
+                selectedPeople.splice(index, 1);
+            }
+            renderPeople();
+            updateStats();
+        }
+
+        function calculateTotalWeight() {
+            return selectedPeople.reduce((sum, id) => {
+                const p = people.find(p => p.id === id);
+                return sum + (p ? p.weight : 0);
+            }, 0);
+        }
+
+        function updateStats() {
+            currentWeightEl.textContent = calculateTotalWeight();
+            peopleOnBoatEl.textContent = selectedPeople.length;
+        }
+
+        function showMessage(msg, type) {
+            messageEl.textContent = msg;
+            messageEl.className = 'message ' + type;
+        }
+
+        crossBtn.addEventListener('click', () => {
+            if (calculateTotalWeight() > boatCapacity) {
+                showMessage('超重！', 'error');
+                return;
+            }
+            selectedPeople.forEach(id => {
+                const p = people.find(p => p.id === id);
+                p.location = boatPosition === 'left' ? 'right' : 'left';
+            });
+            boatPosition = boatPosition === 'left' ? 'right' : 'left';
+            selectedPeople = [];
+            currentTrip++;
+            tripCountEl.textContent = currentTrip;
+            renderPeople();
+            updateStats();
+            if (people.every(p => p.location === 'right')) {
+                showMessage('所有人已安全到达右岸', 'success');
+                crossBtn.disabled = true;
+                autoBtn.disabled = true;
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            people.forEach(p => p.location = 'left');
+            selectedPeople = [];
+            boatPosition = 'left';
+            currentTrip = 0;
+            autoSolving = false;
+            tripCountEl.textContent = 0;
+            renderPeople();
+            updateStats();
+            showMessage('已重置，点击"自动演示"开始', 'info');
+            crossBtn.disabled = false;
+            autoBtn.disabled = false;
+        });
+
+        autoBtn.addEventListener('click', () => {
+            const steps = [
+                [1, 2],  // AB渡河
+                [2],     // B返回
+                [2, 3]   // BC渡河
+            ];
+            autoSolving = true;
+            let i = 0;
+            
+            function executeStep() {
+                if (i >= steps.length) {
+                    // 最终检查所有人是否在右岸
+                    const allOnRight = people.every(p => p.location === 'right');
+                    showMessage(allOnRight ? '所有人已安全到达右岸！' : '渡河失败，请重置重试', 
+                               allOnRight ? 'success' : 'error');
+                    return;
+                }
+
+                // 选择当前步骤的人员
+                selectedPeople = steps[i];
+                renderPeople();
+                updateStats();
+
+                setTimeout(() => {
+                    if (selectedPeople.length > 0) {
+                        crossBtn.click(); // 执行渡河或返回
+                    }
+                    i++;
+                    setTimeout(executeStep, 1000); // 继续下一步
+                }, 1000);
+            }
+
+            // 重置状态确保从正确初始位置开始
+            resetBtn.click();
+            setTimeout(executeStep, 500);
+        });
+
+        renderPeople();
+        updateStats();
+    });
+        // 其他原有脚本保持不变...
+		
+    </script>
+</body>
+</html>
+    
 </body>
 </html>
