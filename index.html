@@ -9,7 +9,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 700px; /* 进一步缩窄页面宽度 */
+            max-width: 700px;
             margin: 0 auto;
             padding: 15px;
             background-color: #f9f9f9;
@@ -47,12 +47,44 @@
             margin-top: 12px;
             font-size: 0.95em;
         }
+        .answer-container {
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            border: 1px solid #d1fae5;
+            border-radius: 8px;
+            padding: 5px 15px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .answer-container:hover {
+            background: linear-gradient(135deg, #dcffe4 0%, #c6f6d5 100%);
+            transform: translateX(5px);
+        }
+        .answer-prompt {
+            color: #10b981;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .answer-prompt:before {
+            content: "✨";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
         .answer {
-            color: #27ae60;
-            margin-bottom: 12px;
-            padding-left: 15px;
-            border-left: 2px solid #2ecc71;
-            font-size: 0.95em;
+            color: #0f9d58;
+            margin-left: 20px;
+            padding: 10px 15px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+            border-radius: 0 8px 8px 0;
+            display: none;
+            font-weight: bold;
+            animation: fadeIn 0.5s ease;
+        }
+        .show-answer .answer {
+            display: block;
         }
         .rule {
             background-color: #f1f9fe;
@@ -72,8 +104,8 @@
         /* 紧凑的镜面对称动画样式 */
         .mirror-animation-container {
             width: 100%;
-            max-width: 350px; /* 更窄的动画宽度 */
-            height: 180px; /* 更低的高度 */
+            max-width: 350px;
+            height: 180px;
             display: flex;
             position: relative;
             margin: 15px auto;
@@ -94,7 +126,7 @@
         }
         
         .animated-shape {
-            width: 60px; /* 更小的形状 */
+            width: 60px;
             height: 60px;
             background: linear-gradient(45deg, #ff3366, #8833ff);
             border-radius: 12px;
@@ -108,7 +140,7 @@
         
         .mirror-line {
             position: absolute;
-            width: 2px; /* 更细的镜面线 */
+            width: 2px;
             height: 100%;
             left: 50%;
             top: 0;
@@ -853,13 +885,22 @@
         
         <div class="example">
             <div class="question">镜子中，字母"b"变成什么？</div>
-            <div class="answer">「d」</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">「d」</div>
+            </div>
             
             <div class="question">若将一张写有「b3q」的纸垂直放在镜子前，镜中显示的完整字母和数字组合是什么？</div>
-            <div class="answer">左右反转的「dƐp」</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">左右反转的「dƐp」</div>
+            </div>
             
             <div class="question">当实际时间是「12:45」时，镜子中手表显示的时间是什么？</div>
-            <div class="answer">镜中显示「11:15」</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">镜中显示「11:15」</div>
+            </div>
         </div>
     </div>
 
@@ -871,20 +912,29 @@
         
         <div class="example">
             <div class="question">物体距离镜子10cm，物体与镜像之间的距离是多少？</div>
-            <div class="answer">20cm</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">20cm</div>
+            </div>
             
             <div class="question">小明站在距离镜子2米的位置，他的小狗蹲在他脚边（距离小明0.5米）。问：
 
 镜中小明到镜子的距离是多少？
 镜中小狗到镜子的距离是多少？</div>
-            <div class="answer">2米,
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">2米,
 1.5米</div>
+            </div>
             
             <div class="question">一辆玩具车以每秒5厘米的速度向镜子靠近。开始时，小车距离镜子60厘米。问：
 
 3秒后，小车与镜中像的距离是多少？
 像的速度是多少？</div>
-            <div class="answer">90厘米；5厘米/秒</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">90厘米；5厘米/秒</div>
+            </div>
         </div>
     </div>
     
@@ -895,14 +945,23 @@
         </div>
         
         <div class="example">
-            <div class="question">判断字母 ​​"O"​​ 是否为轴对称图形？</div>
-            <div class="answer">是</div>
+            <div class="question">判断字母 "O" 是否为轴对称图形？</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">是</div>
+            </div>
             
-            <div class="question">判断数字 ​​"8"​​ 是否为轴对称图形？如果是，有几条对称轴？</div>
-            <div class="answer">是轴对称图形（有2条对称轴：水平和垂直）</div>
+            <div class="question">判断数字 "8" 是否为轴对称图形？如果是，有几条对称轴？</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">是轴对称图形（有2条对称轴：水平和垂直）</div>
+            </div>
             
-            <div class="question">判断交通标志 ​​"禁止停车"（红圈+斜杠）​​ 是否为轴对称图形？</div>
-            <div class="answer">若以斜杠为对称轴，是</div>
+            <div class="question">判断交通标志 "禁止停车"（红圈+斜杠） 是否为轴对称图形？</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">若以斜杠为对称轴，是</div>
+            </div>
         </div>
     </div>
     
@@ -914,13 +973,22 @@
         
         <div class="example">
             <div class="question">圆形有几条对称轴？</div>
-            <div class="answer">无数条</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">无数条</div>
+            </div>
             
             <div class="question">正五边形有几条对称轴？</div>
-            <div class="answer">5条</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">5条</div>
+            </div>
             
             <div class="question">风车旋转时，叶片每转30°与自身重合。它有几条旋转对称轴？</div>
-            <div class="answer">12条</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">12条</div>
+            </div>
         </div>
     </div>
     
@@ -932,13 +1000,22 @@
         
         <div class="example">
             <div class="question">在对称轴左侧画出一个三角形，右侧对称画出图形。</div>
-            <div class="answer">右侧为左侧三角形的镜像</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">右侧为左侧三角形的镜像</div>
+            </div>
             
             <div class="question">以45°斜线为对称轴，在轴下方画一个箭头"→"，补全对称图形。</div>
-            <div class="answer">对称图形为两个箭头呈直角相交</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">对称图形为两个箭头呈直角相交</div>
+            </div>
             
             <div class="question">在一个对称轴上画半个心形，画出完整心形对称图形。</div>
-            <div class="answer">完整心形对称</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">完整心形对称</div>
+            </div>
         </div>
     </div>
     
@@ -993,13 +1070,22 @@
         
         <div class="example">
             <div class="question">骰子上，点数为1的一面的对面是多少点？</div>
-            <div class="answer">6点</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">6点</div>
+            </div>
             
-            <div class="question">骰子 ​​上面是2点​​，​​前面是4点​​，当向右旋转90°后，新的 ​​上面​​ 是多少点？</div>
-            <div class="answer">2点</div>
+            <div class="question">骰子 上面是2点，前面是4点，当向右旋转90°后，新的 上面 是多少点？</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">2点</div>
+            </div>
             
-            <div class="question">骰子初始状态为 ​​上面1点​​，​​前面2点​​，​​右面3点​​。若先向前翻转一次，再向左翻转一次，最后新的 ​​上面​​ 是多少点？</div>
-            <div class="answer">3点</div>
+            <div class="question">骰子初始状态为 上面1点，前面2点，右面3点。若先向前翻转一次，再向左翻转一次，最后新的 上面 是多少点？</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">3点</div>
+            </div>
         </div>
         
         <h3>2. 点数排除</h3>
@@ -1009,13 +1095,22 @@
         
         <div class="example">
             <div class="question">骰子一面出现8点可能吗？</div>
-            <div class="answer">不可能</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">不可能</div>
+            </div>
             
             <div class="question">骰子两个相邻面点数和为13可能吗？</div>
-            <div class="answer">不可能</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">不可能</div>
+            </div>
             
             <div class="question">骰子上同时出现2个"1"点的面可能吗？</div>
-            <div class="answer">不可能</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">不可能</div>
+            </div>
         </div>
         
         <h3>3. 数字组合</h3>
@@ -1025,13 +1120,22 @@
         
         <div class="example">
             <div class="question">一个骰子上已知面有1点、2点、3点，求剩余面的对应的点数。</div>
-            <div class="answer">6点、5点、4点</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">6点、5点、4点</div>
+            </div>
             
-            <div class="question">一个骰子 ​​1对6​​、​​2对4​​，求 ​​3点面​​ 和 ​​5点面​​ 的位置关系。</div>
-            <div class="answer">​​3和5相对​​（此时和为8，非标准骰子）</div>
+            <div class="question">一个骰子 1对6、2对4，求 3点面 和 5点面 的位置关系。</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">3和5相对（此时和为8，非标准骰子）</div>
+            </div>
             
-            <div class="question">骰子初始状态为 ​​上面1​​、​​前面2​​、​​右面3​​。若向左翻转两次，求新的上面点数。</div>
-            <div class="answer">6点​</div>
+            <div class="question">骰子初始状态为 上面1点，前面2点，右面3点。若先向前翻转一次，再向左翻转一次，最后新的 上面 是多少点？</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">6点</div>
+            </div>
         </div>
     </div>
     
@@ -1393,8 +1497,16 @@
         // 其他原有脚本保持不变...
 		
     </script>
-</body>
-</html>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 答案显示功能
+            document.body.addEventListener('click', function(e) {
+                const container = e.target.closest('.answer-container');
+                if(container) {
+                    container.classList.toggle('show-answer');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
